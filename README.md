@@ -3,9 +3,9 @@ bitflyer_stream_captureで出力した板情報を一定秒数ごとの状況を
 
 ## 出力されるファイルフォーマット
 
-`board.(unixtime/"last").msg`
+`board.(start_unixtime).("main"/"last").msg`
 
-`board.last.msg`は最後まで処理した時に余り
+`board.xxxxx.main.msg``board.xxxxx.last.msg`は最後まで処理した時に余り
 
 ## オプション
 
@@ -13,8 +13,7 @@ bitflyer_stream_captureで出力した板情報を一定秒数ごとの状況を
 -s xxxx  開始時刻(UnixTimeで指定。秒まで有効)
          デフォルトでは板情報スナップショットファイルの最初の時刻以後、処理インターバルで割り切れる時間
 -i xxxx  処理インターバル(秒。デフォルト5秒)
--b xxxx  処理する板情報スナップショットファイル
--d xxxx  処理する板情報差分ファイル
+-l xxxx  処理後`board.xxx.last.msg`
 ```
 
 ## 保存形式
@@ -33,5 +32,6 @@ bitflyer_stream_captureで出力した板情報を一定秒数ごとの状況を
     1234568: 2.1100023
   },
   "timestamp": "2017-11-01T09:00:00Z"
+  "time": 1234567890
 }
 ```
